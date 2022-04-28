@@ -18,6 +18,8 @@ const addTrainController = require('./controlers/addTrainController');
 const addpassThrough = require('./controlers/passThroughController');
 const deleteTrain = require('./controlers/deleteTrainController');
 const editTrain = require('./controlers/editTrain');
+const getPassenger = require('./controlers/passesnger');
+const deleteTicket = require('./controlers/deleteTicket');
 
 initPassport();
 app.use(express.urlencoded({ extended: true }));
@@ -76,6 +78,9 @@ app.post('/deleteTrain/:id', deleteTrain.getDeleteTrain);
 
 app.get('/editTrain/:id', editTrain.GetEditForm);
 app.post('/editTrain/:id', editTrain.updateTrain);
+
+app.get('/passenger/:id', getPassenger.passengerList);
+app.post('/deleteTicket/:id/:tno', deleteTicket.getDeleteTicket)
 
 app.listen('4444', () => {
     console.log('Server Started on port 4444');
